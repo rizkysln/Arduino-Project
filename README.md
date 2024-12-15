@@ -5,5 +5,7 @@
 
 Jika ada Kendala bisa Hubungi Kami di
 wa atau IG @rizkysln_
-* https://www.instagram.com/rizkysln_/
+
 * https://wa.link/zvsqtw
+* https://www.instagram.com/rizkysln_/
+
