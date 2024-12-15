@@ -2,7 +2,7 @@
 CTBot myBot;
 String ssid = "rizky"; // GANTI mySSID DENGAN SSID WIFI ANDA
 String pass = "rizky123"; // GANTI myPassword DENGAN PASSWORD WIFI ANDA, JIKA ADA
-String token = "7623718527:AAFHzdwory4hnlyVVb05rHVJAb6xcJ4cYMA"; // GANTI myToken DENGAN TOKEN BOT TELEGRAM ANDA
+String token = "ganti sama token kamu"; // GANTI myToken DENGAN TOKEN BOT TELEGRAM ANDA
 
 void setup() {
   // inisialisasi Serial
