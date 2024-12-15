@@ -5,7 +5,7 @@ CTBot myBot;
 
 String ssid = "SMART_HOME"; //ganti jadi nama wifi kelen     
 String pass = "merahtua"; //ganti jadi password wifi kelen
-String token = "5841058236:AAE6a5wsLpE-w5MJwV9Pcv8RE3UfkDlog8M"; //ganti pake auth token bot telegram kelen   
+String token = "pakai token kamu ya"; //ganti pake auth token bot telegram kelen   
 uint8_t redLed = D1;               
 uint8_t greenLed = D2;                       
                                     
