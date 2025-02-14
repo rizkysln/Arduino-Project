@@ -1,0 +1,50 @@
+ini untuk app script di google sheet
+<------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+function doPost(e) {
+    try {
+        var sheet = SpreadsheetApp.openById("1m4RtYARJz9osIQUpxR5ytI8pUUytz5UtyWyGMaibyhA").getActiveSheet();
+        var data = JSON.parse(e.postData.contents);
+        sheet.appendRow([new Date(), data.sensor, data.nilai]);
+
+        return ContentService.createTextOutput(JSON.stringify({ "status": "success" }))
+                             .setMimeType(ContentService.MimeType.JSON);
+    } catch (error) {
+        return ContentService.createTextOutput(JSON.stringify({ "error": error.message }))
+                             .setMimeType(ContentService.MimeType.JSON);
+    }
+}
+
+
+function doGet(e) {
+    var sheet = SpreadsheetApp.openById("1m4RtYARJz9osIQUpxR5ytI8pUUytz5UtyWyGMaibyhA").getSheetByName("Sheet2");
+    var lastRow = sheet.getLastRow();
+
+    if (lastRow < 2) {
+        // Jika sheet kosong, return nilai default 0
+        var result = {
+            "total_quantity": 0,
+            "total_belanja": 0
+        };
+        return ContentService.createTextOutput(JSON.stringify(result)).setMimeType(ContentService.MimeType.JSON);
+    }
+
+    // Ambil semua data dari kolom C (Quantity) dan kolom F (Total Belanja)
+    var totalQuantity = sheet.getRange(2, 3, lastRow - 1).getValues().flat().filter(String).map(Number);
+    var totalBelanja = sheet.getRange(2, 6, lastRow - 1).getValues().flat().filter(String).map(Number);
+
+    var result = {
+        "total_quantity": totalQuantity.reduce((a, b) => a + b, 0),
+        "total_belanja": totalBelanja.reduce((a, b) => a + b, 0)
+    };
+
+    return ContentService.createTextOutput(JSON.stringify(result)).setMimeType(ContentService.MimeType.JSON);
+}
+
+
+
+
